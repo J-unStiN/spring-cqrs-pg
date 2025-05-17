@@ -1,5 +1,7 @@
 # Spring CQRS PostgreSQL 예제 프로젝트
 
+## 추후 개선 업데이트 진행 예정
+
 ## 프로젝트 개요
 이 프로젝트는 CQRS(Command Query Responsibility Segregation) 패턴을 Spring Boot와 함께 구현한 예제입니다. 쓰기 모델은 PostgreSQL을 사용하고 읽기 모델은 MongoDB를 사용합니다.
 
