@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:latest
+    container_name: postgres_cqrs
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: cqrs_example
+    volumes:
+      - ./data/postgresql_data:/var/lib/postgresql/data
+    networks:
+      - cqrs_network
+    restart: always
+
+  mongodb:
+    image: mongo:latest
+    container_name: mongo_cqrs
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: password
+      MONGO_INITDB_DATABASE: cqrs_example
+    volumes:
+      - ./data/mongodb_data:/data/db
+    networks:
+      - cqrs_network
+    restart: always
+
+networks:
+  cqrs_network:
+    driver: bridge
